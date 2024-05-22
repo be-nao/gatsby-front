@@ -5,11 +5,18 @@ const config: GatsbyConfig = {
     title: `gatsby-front`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: ["gatsby-plugin-postcss"]
+  plugins: [
+    "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "POKEMON", // GraphQLスキーマ内で使用されるタイプの名前。
+        fieldName: "pokemon", // GatsbyのGraphQLクエリ内で使用するフィールドの名前
+        url: "https://graphql-pokemon2.vercel.app/", // GraphQLエンドポイントのURL
+      },
+    },
+  ],
 };
 
 export default config;
