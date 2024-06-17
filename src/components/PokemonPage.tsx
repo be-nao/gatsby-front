@@ -22,6 +22,15 @@ export const query = graphql`
           }
         }
         image
+        types
+        height {
+          minimum
+          maximum
+        }
+        weight {
+          minimum
+          maximum
+        }
       }
     }
   }

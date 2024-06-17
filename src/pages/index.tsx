@@ -1,17 +1,18 @@
-// src/pages/index.js
+// src/pages/index.tsx
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql, PageProps } from 'gatsby';
+import { PokemonsQueryData } from '../types/pokemon-types'; // 型をインポート
 
-const IndexPage = () => {
-  const pokemons = ["Bulbasaur", "Ivysaur", "Venusaur"];
+const IndexPage: React.FC<PageProps<PokemonsQueryData>> = ({ data }) => {
+  const pokemonNames = data.pokemon.pokemons.map(p => p.name);
 
   return (
     <main>
       <h1>Welcome to My Gatsby Pokemon Site</h1>
       <ul>
-        {pokemons.map((pokemon) => (
-          <li key={pokemon}>
-            <Link to={`/pokemon/${pokemon.toLowerCase()}`}>{pokemon}</Link>
+        {pokemonNames.map((pokemonName) => (
+          <li key={pokemonName}>
+            <Link to={`/pokemon/${pokemonName.toLowerCase()}`}>{pokemonName}</Link>
           </li>
         ))}
       </ul>
@@ -20,3 +21,14 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+// ページクエリの定義は変更なし
+export const query = graphql`
+  query {
+    pokemon {
+      pokemons(first: 151) {
+        name
+      }
+    }
+  }
+`;
