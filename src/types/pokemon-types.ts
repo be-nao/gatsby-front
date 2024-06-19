@@ -1,35 +1,33 @@
+
+  
+  export type PokemonCardData = {
+        number: number;
+        name: string;
+        image: string;
+        types: string[];
+  };
+
 // src/types/pokemon-types.ts
-export type Pokemon = {
-    id: string;
-    number: number;
-    name: string;
-    types: string[];
-    attacks: {
-      special: Array<{
-        name: string;
-      }>;
-    };
-    image: string;
-    height: {
-      minimum: string;
-      maximum: string;
-    };
-    weight: {
-      minimum: string;
-      maximum: string;
-    };
-  };
-  
-  export type PokemonQueryData = {
-    pokemon: {
-      pokemon: Pokemon;
-    };
-  };
-  
-  export type PokemonsQueryData = {
-    pokemon: {
-      pokemons: {
-        name: string;
-      }[];
-    };
-  };
+export type SpecialAttack = {
+  name: string;
+};
+
+export type Attacks = {
+  special: SpecialAttack[];
+};
+
+export type Dimension = {
+  minimum: string;
+  maximum: string;
+};
+
+export type PokemonDetailData = {
+  id: string;
+  number: number;
+  name: string;
+  attacks: Attacks;
+  image: string;
+  types: string[];
+  height: Dimension;
+  weight: Dimension;
+};
