@@ -1,6 +1,7 @@
 // src/components/PokemonCard.tsx
 import React from "react";
 import { PokemonCardData } from "../types/pokemon-types";
+import Type from "./Type";
 
 interface PokemonCardProps {
   pokemon: PokemonCardData;
@@ -16,13 +17,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         <h2 className="text-xl font-bold">{pokemon.name}</h2>
         <h2 className="text-x font-bold ">{pokemon.number}</h2>
         <ul className="flex flex-wrap mt-">
-          {pokemon.types.map((type, index) => (
-            <li
-              key={index}
-              className="bg-blue-200 text-blue-800 text-sm font-semibold mr-1 mb-1 px-2 py-1 rounded"
-            >
-              {type}
-            </li>
+          {pokemon.types.map((type) => (
+            <Type type={type} />
           ))}
         </ul>
       </div>
