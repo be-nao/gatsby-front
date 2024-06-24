@@ -1,11 +1,9 @@
-
-  
-  export type PokemonCardData = {
-        number: number;
-        name: string;
-        image: string;
-        types: string[];
-  };
+export type PokemonCardData = {
+  number: number;
+  name: string;
+  image: string;
+  types: string[];
+};
 
 // src/types/pokemon-types.ts
 export type SpecialAttack = {
@@ -30,4 +28,8 @@ export type PokemonDetailData = {
   types: string[];
   height: Dimension;
   weight: Dimension;
+  evolutions: {
+    name: string;
+    image: string;
+  }[];
 };
