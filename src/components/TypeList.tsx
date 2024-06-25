@@ -29,7 +29,7 @@ const pokemonTypes = [
 
 const TypeList: React.FC<TypeListProps> = ({ onSelectType, selectedType }) => {
   return (
-    <ul className="grid grid-cols-9 gap-1 p-2">
+    <div className="grid grid-cols-9 gap-1 p-2">
       {pokemonTypes.map((type) => (
         <Type
           key={type}
@@ -38,7 +38,7 @@ const TypeList: React.FC<TypeListProps> = ({ onSelectType, selectedType }) => {
           onSelect={() => onSelectType(type)}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 
