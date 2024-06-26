@@ -55,7 +55,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           <img
             src={pokemon.image}
             alt={pokemon.name}
-            style={{ width: "200px", height: "200px" }}
+            style={{ maxWidth: "250px", height: "200px" }}
           />
         </div>
       </Link>
