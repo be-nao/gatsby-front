@@ -36,9 +36,9 @@ const IndexPage: React.FC<PageProps<PokemonsQueryData>> = ({ data }) => {
         <div className="grid grid-cols-3 gap-4 justify-center">
           {(selectedType ? filteredPokemons : pokemons).map(
             (pokemon, index) => (
-              <Link to={`/pokemon/${pokemon.name.toLowerCase()}`} key={index}>
-                <PokemonCard pokemon={pokemon} />
-              </Link>
+              // <Link to={`/pokemon/${pokemon.name.toLowerCase()}`} key={index}>
+              <PokemonCard pokemon={pokemon} />
+              // </Link>
             )
           )}
         </div>
